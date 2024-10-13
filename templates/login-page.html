@@ -3,11 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="static/images/logo-elibramo.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Login Page</title>
+    <title>Login</title>
 </head>
-<body class ="bg-[url('static/images/pattern-randomized.png')] bg-cover bg-black">
-    <div class="w-full bg-black"> </div>
-    <div class=""></div>
+<body class="bg-[url('static/images/pattern-randomized.png')] bg-cover flex justify-center min-h-screen items-center" style="font-family: 'Lexend', sans-serif;">
+    <div class="container max-w-3xl flex flex-col md:flex-row">
+        <div class="md:shadow-xl w-full md:w-1/2">
+            <img src="{{ url_for('static', filename='images/slideshow-1.png')}}" class="w-full h-auto md:rounded-tl-xl md:rounded-bl-xl">
+        </div>
+        <div class="w-full md:w-1/2 bg-white md:rounded-tr-xl md:rounded-br-xl md:shadow-xl border-4 border-black-100 p-4 md:p-8">
+            <div class="flex flex-col">
+                <form action="/login" method="POST">
+                    <div class="flex justify-center items-center">
+                        <a href="/mainpage"><img src="{{ url_for('static', filename='images/logo-elibramo.png')}}" class="w-16 mt-6 mb-3"></a>
+                    </div>
+                    <div>
+                        <p class="text-sm">Welcome Back!</p>
+                        <h3 class="font-bold text-xl mb-5">Login to E-LIBRAMO</h3>
+                    </div>
+                    <div class="mb-6">
+                        <fieldset class="border border-gray-300 rounded-md p-1 w-full md:w-72">
+                            <legend class="text-sm">Username</legend>
+                            <input type="text" name="username" id="username" required class="border-none w-full focus:outline-none p-2">
+                        </fieldset>
+                    </div>
+                    <div class="mb-12">
+                        <fieldset class="border border-gray-300 rounded-md p-1 w-full md:w-72">
+                            <legend class="text-sm">Password</legend>
+                            <input type="password" name="password" id="password" required class="border-none w-full focus:outline-none p-2">
+                        </fieldset>
+                    </div>
+                    <div class="mb-6">
+                        <button type="submit" class="w-full md:w-72 h-10 bg-blue-900 text-white rounded-lg">Login</button>
+                    </div>
+                    <div class="flex flex-row justify-center items-center">
+                        <p class="text-xs">Don't have an account yet?</p>
+                        <a href="/signup" class="ml-1 text-xs underline text-blue-900">Sign up</a>
+                    </div>
+                </form>     
+            </div>
+        </div>
+    </div>
 </body>
 </html>
